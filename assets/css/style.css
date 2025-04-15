@@ -1,4 +1,4 @@
-@import url(./assets/css/font.css);
+@import url(./font.css);
 
 /* 设置滚动条的宽度为10px，并且颜色为红色 */
 ::-webkit-scrollbar {
@@ -26,7 +26,6 @@ body {
   --tw-text-opacity: 1;
   color: rgb(117 118 147 / var(--tw-text-opacity));
 }
-
 
 /*
 Ensure the default browser behavior of the `hidden` attribute.
@@ -1257,31 +1256,41 @@ Responsive CSS
   width: 100%;
   height: 100%;
   transition-property: all;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
-  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
 }
 
-.dc-gradient-border:after, 
+.dc-gradient-border:after,
 .dc-gradient-border:before {
   border-radius: 50px;
   content: var(--tw-content);
   background-image: conic-gradient(
-    from var(--angle) at 50% 50%, #dcff63 0deg, #7bf4e2 20deg, #3a6df2 150deg, #ff5c2e 200deg, #ffbe26 300deg, #dcff63 1turn);
-    overflow: hidden;
+    from var(--angle) at 50% 50%,
+    #dcff63 0deg,
+    #7bf4e2 20deg,
+    #3a6df2 150deg,
+    #ff5c2e 200deg,
+    #ffbe26 300deg,
+    #dcff63 1turn
+  );
+  overflow: hidden;
 }
 
 .dc-gradient-border:hover:after {
   display: block;
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  opacity: .5;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+    scaleY(var(--tw-scale-y));
+  opacity: 0.5;
   content: var(--tw-content);
   --tw-blur: blur(24px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale)
+    var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.dc-gradient-border:hover:after, 
+.dc-gradient-border:hover:after,
 .dc-gradient-border:hover:before {
   animation: 3s spin linear infinite;
 }
@@ -1296,17 +1305,17 @@ Responsive CSS
   background-color: #262628 !important;
 }
 .dc-bg-yellow {
-  background-image: linear-gradient(165deg, #EB14D7 0%, #5C13EC 100%) !important;
+  background-image: linear-gradient(165deg, #eb14d7 0%, #5c13ec 100%) !important;
 }
 .dc-bg-blue {
   background-image: linear-gradient(165deg, #8afdff 0%, #38acfe 100%) !important;
 }
 
 /* 添加以下CSS */
-img[src*="photo.svg"],
-img[src*="icon-arrow-light.svg"] {
+img[src*='photo.svg'],
+img[src*='icon-arrow-light.svg'] {
   /* 使用filter方案 */
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);  /* 这会让图标变成白色 */
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* 这会让图标变成白色 */
 }
 
 /* 或者如果SVG是内联的，可以直接使用 */
@@ -1314,82 +1323,86 @@ img[src*="icon-arrow-light.svg"] {
   fill: white;
 }
 
-
 .dropdown {
   left: -1.875rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   display: none;
   min-width: -moz-max-content;
   min-width: max-content;
   flex-direction: column;
   gap: 1rem;
-  border-radius: .375rem;
+  border-radius: 0.375rem;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(238 238 238/var(--tw-border-opacity));
+  border-color: rgb(238 238 238 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255/var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   padding: 1.25rem 2rem;
-  --tw-shadow: 0px 2px 19px rgba(0,0,0,.05);
+  --tw-shadow: 0px 2px 19px rgba(0, 0, 0, 0.05);
   --tw-shadow-colored: 0px 2px 19px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
-  transition-duration: .3s;
-  transition-timing-function: cubic-bezier(.4,0,1,1)
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 .dropdown:is(.dark *) {
   --tw-border-opacity: 1;
-  border-color: rgb(45 47 64/var(--tw-border-opacity));
+  border-color: rgb(45 47 64 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgb(24 28 49/var(--tw-bg-opacity))
+  background-color: rgb(24 28 49 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 1280px) {
   .dropdown {
-      visibility:hidden;
-      margin-top: 0;
-      display: flex;
-      width: 250px;
-      --tw-translate-y: 2.5rem;
-      opacity: 0
+    visibility: hidden;
+    margin-top: 0;
+    display: flex;
+    width: 250px;
+    --tw-translate-y: 2.5rem;
+    opacity: 0;
   }
 
-  .dropdown,.dropdown:before {
-      position: absolute;
-      transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+  .dropdown,
+  .dropdown:before {
+    position: absolute;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+      skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+      scaleY(var(--tw-scale-y));
   }
 
   .dropdown:before {
-      top: -.375rem;
-      left: 2.5rem;
-      height: .75rem;
-      width: .75rem;
-      --tw-rotate: 45deg;
-      border-left-width: 1px;
-      border-top-width: 1px;
-      --tw-border-opacity: 1;
-      border-color: rgb(238 238 238/var(--tw-border-opacity));
-      content: var(--tw-content);
-      --tw-bg-opacity: 1;
-      background-color: rgb(255 255 255/var(--tw-bg-opacity))
+    top: -0.375rem;
+    left: 2.5rem;
+    height: 0.75rem;
+    width: 0.75rem;
+    --tw-rotate: 45deg;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(238 238 238 / var(--tw-border-opacity));
+    content: var(--tw-content);
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
   .group:hover .dropdown {
-      visibility: visible;
-      --tw-translate-y: 1.625rem;
-      transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      opacity: 1
+    visibility: visible;
+    --tw-translate-y: 1.625rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+      skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+      scaleY(var(--tw-scale-y));
+    opacity: 1;
   }
 
   .dropdown:is(.dark *):before {
-      --tw-border-opacity: 1;
-      border-color: rgb(45 47 64/var(--tw-border-opacity));
-      content: var(--tw-content);
-      --tw-bg-opacity: 1;
-      background-color: rgb(24 28 49/var(--tw-bg-opacity))
+    --tw-border-opacity: 1;
+    border-color: rgb(45 47 64 / var(--tw-border-opacity));
+    content: var(--tw-content);
+    --tw-bg-opacity: 1;
+    background-color: rgb(24 28 49 / var(--tw-bg-opacity));
   }
 }
-
 
 .animate__delay-0_5s {
   --animate-delay: 0.5s;

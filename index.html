@@ -11,17 +11,20 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
   <title>AI Tools - DCWorks</title>
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="./favicon.ico">
 
   <!-- All CSS Links -->
-  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="assets/css/magnific-popup.css">
-  <link rel="stylesheet" href="assets/css/animate.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/dialog.css">
+  <link rel="stylesheet" href="./assets/css/tailwind.min.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+    href="./assets/css/swiper-bundle.min.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+    href="./assets/css/magnific-popup.min.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/css/animate.min.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/css/style.min.css">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="./assets/css/dialog.min.css">
 
   <!-- Tailwind -->
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
 </head>
 
 <body class="bg-[#181c31]" :class="{'dark:bg-[#181c31]': darkMode === true}">
@@ -63,9 +66,9 @@
             </button>
             <!-- Hamburger Toggle BTN -->
 
-            <a class="navbar-brand shrink-0 text-xl font-bold" href="/">
+            <a class="navbar-brand shrink-0 text-xl font-bold" href="./index.html">
               LOGO
-              <!-- <img class="w-[60%]" src="assets/img/logo.png" alt="logo"> -->
+              <!-- <img class="w-[60%]" src="./assets/img/logo.png" alt="logo"> -->
             </a>
           </div>
 
@@ -73,7 +76,8 @@
             <ul x-show="navigationOpen" x-transition:enter="animate__fadeInDown" x-transition:leave="animate__fadeOut"
               class="absolute top-[60px] left-0 w-full self-center flex flex-col justify-between p-10 animate__animated animate__faster bg-[#181c31]">
               <li class="border-b border-gray-700">
-                <a href="/" class="block text-[16px] ease-in duration-300 hover:text-primary-color py-5">Home</a>
+                <a href="./index.html"
+                  class="block text-[16px] ease-in duration-300 hover:text-primary-color py-5">Home</a>
               </li>
               <li class="border-b border-gray-700">
                 <a href="./api.html"
@@ -86,19 +90,19 @@
             </ul>
 
             <div class="self-center flex gap-2">
-              <a x-show="!isLogin" href="#sign-dialog"
+              <span x-show="!isLogin" href="#sign-dialog"
                 class="signIn inline-block text-[13px] rounded-full dc-bg-yellow py-1 px-5 shadow-custom-box-shadow hover:shadow-secondary-btn ease-in duration-300">
                 Sign In
-              </a>
+              </span>
 
-              <!-- 语言 -->
+              <!-- language -->
               <div x-data="{ isOpen: false }" @click="isOpen = !isOpen" @click.away="isOpen = false"
                 class="group/item peer relative rounded-lg border border-gray-600 bg-[#252a42]">
 
                 <div
                   class="text-f-text-tertiary flex items-center justify-between py-1 pe-[2px] ps-1.5 hover:cursor-pointer">
                   <div class="flex flex-1 items-center justify-between gap-3 pr-2">
-                    <img src="./assets/img/icon/earth.svg" class="w-7">
+                    <img src="./assets/img/icon/earth.svg" alt="earth" class="w-7">
                     <p class="text-sm leading-5 text-gray-300">English</p>
                   </div>
                 </div>
@@ -138,7 +142,7 @@
                 <div @click="showProfileDropdown = !showProfileDropdown" @click.away="showProfileDropdown = false"
                   class="avatar relative flex max-w-xs items-center rounded-full bg-indigo-600 text-sm text-white ring-1 ring-white/50 hover:outline-none hover:ring-2 hover:ring-white/80 hover:ring-offset-2 hover:ring-offset-indigo-600">
                   <span class="absolute -inset-1.5"></span>
-                  <img class="size-8 rounded-full object-cover" src="./assets/img/user/user3.jpg" alt="Avatar">
+                  <img class="size-8 rounded-full object-cover" src="./assets/img/user/user3.webp" alt="Avatar">
                 </div>
 
                 <div id="profile_dropdown" :class="{'!block': showProfileDropdown}"
@@ -154,7 +158,7 @@
                       </span>
                       <span x-text="userInfo?.credit || '0'"></span>
                     </div>
-                    <a class="dc-bg-yellow px-2 text-[12px] text-white rounded-full cursor-pointer">Buy</a>
+                    <span class="dc-bg-yellow px-2 text-[12px] text-white rounded-full cursor-pointer">Buy</span>
                   </div>
                   <div class="w-full h-[1px] m-2 gradient-divider"></div>
                   <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-blue-500/20 cursor-pointer">Credit
@@ -162,10 +166,10 @@
                   <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-blue-500/20 cursor-pointer">Delete
                     Account</a>
                   <div class="w-full h-[1px] m-2 gradient-divider"></div>
-                  <a class="block px-4 py-2 text-sm text-gray-300 hover:bg-blue-500/20 cursor-pointer" @click="
+                  <span class="block px-4 py-2 text-sm text-gray-300 hover:bg-blue-500/20 cursor-pointer" @click="
                   localStorage.clear()
                   isLogin = false;
-                ">Sign out</a>
+                ">Sign out</span>
                   <!-- <div class="absolute -z-10 pointer-events-none inset-0 overflow-hidden">
                     <span class="absolute left-0 bottom-0 -z-1 w-full">
                       <img src="./assets/img/header/blur-16.svg" alt="blur" class="max-w-none w-full">
@@ -189,14 +193,14 @@
           <!-- Left -->
           <div class="flex items-center">
             <!-- Logo -->
-            <a class="navbar-brand shrink-0 w-[150px] text-4xl font-bold" href="/">
+            <a class="navbar-brand shrink-0 w-[150px] text-4xl font-bold" href="./index.html">
               LOGO
-              <!-- <img class="w-100" src="assets/img/logo.png" alt="logo"> -->
+              <!-- <img class="w-100" src="./assets/img/logo.png" alt="logo"> -->
             </a>
             <!-- Menu -->
             <ul class="self-center flex gap-10">
               <li>
-                <a href="#" class="block text-[16px] ease-in duration-300 py-6">Home</a>
+                <a href="./index.html" class="block text-[16px] ease-in duration-300 py-6">Home</a>
               </li>
               <li>
                 <a href="./api.html" class="block text-[16px] ease-in duration-300 py-6">API</a>
@@ -219,12 +223,12 @@
                 class="signIn flex items-center justify-center rounded-full dc-bg-yellow px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out dc-button-hover-shadow"
                 href="#">Sign In</a>
 
-              <!-- 语言 -->
+              <!-- language -->
               <div class="group/item peer relative rounded-lg border border-gray-600 bg-[#252a42]">
                 <div
                   class="text-f-text-tertiary flex items-center justify-between py-1 pe-[2px] ps-1.5 hover:cursor-pointer">
                   <div class="flex flex-1 items-center justify-between gap-3 pr-2">
-                    <img src="./assets/img/icon/earth.svg" class="w-7">
+                    <img src="./assets/img/icon/earth.svg" alt="earth" class="w-7">
                     <p class="text-sm leading-5 text-gray-300">English</p>
                   </div>
                 </div>
@@ -264,7 +268,7 @@
                 <div @click="showProfileDropdown = !showProfileDropdown" @click.away="showProfileDropdown = false"
                   class="avatar relative flex max-w-xs items-center rounded-full bg-indigo-600 text-sm text-white ring-1 ring-white/50 hover:outline-none hover:ring-2 hover:ring-white/80 hover:ring-offset-2 hover:ring-offset-indigo-600">
                   <span class="absolute -inset-1.5"></span>
-                  <img class="size-8 rounded-full object-cover" src="./assets/img/user/user3.jpg" alt="Avatar">
+                  <img class="size-8 rounded-full object-cover" src="./assets/img/user/user3.webp" alt="Avatar">
                 </div>
 
                 <div id="profile_dropdown" :class="{'!block': showProfileDropdown}"
@@ -280,7 +284,7 @@
                       </span>
                       <span x-text="userInfo?.credit || '0'"></span>
                     </div>
-                    <a class="dc-bg-yellow px-2 text-[12px] text-white rounded-full cursor-pointer">Buy</a>
+                    <span class="dc-bg-yellow px-2 text-[12px] text-white rounded-full cursor-pointer">Buy</span>
                   </div>
                   <div class="w-full h-[1px] m-2 gradient-divider"></div>
                   <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-blue-500/20 cursor-pointer">Credit
@@ -288,10 +292,10 @@
                   <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-blue-500/20 cursor-pointer">Delete
                     Account</a>
                   <div class="w-full h-[1px] m-2 gradient-divider"></div>
-                  <a class="block px-4 py-2 text-sm text-gray-300 hover:bg-blue-500/20 cursor-pointer" @click="
+                  <span class="block px-4 py-2 text-sm text-gray-300 hover:bg-blue-500/20 cursor-pointer" @click="
                   localStorage.clear()
                   isLogin = false;
-                ">Sign out</a>
+                ">Sign out</span>
                   <!-- <div class="absolute -z-10 pointer-events-none inset-0 overflow-hidden">
                     <span class="absolute left-0 bottom-0 -z-1 w-full">
                       <img src="./assets/img/header/blur-16.svg" alt="blur" class="max-w-none w-full">
@@ -465,7 +469,7 @@
                       <div class=" overflow-hidden flex flex-1 flex-col items-center justify-center gap-5 text-sm
                         bg-white/14 border border-white/30 rounded-lg cursor-pointer">
                         <div class="flex items-center justify-center">
-                          <img src="./assets/img/ai/01.png"
+                          <img src="./assets/img/ai/01.webp"
                             class="aspect-16/9 object-cover wow animate__animated animate__fadeInUp"
                             data-wow-delay=".1s" alt="overview-image">
                         </div>
@@ -473,15 +477,17 @@
                       <div
                         class="overflow-hidden flex flex-1 flex-col items-center justify-center gap-5 text-sm bg-white/14 border border-white/30 rounded-lg cursor-pointer">
                         <div class="flex items-center justify-center h-[32px]">
-                          <img src="./assets/img/ai/02.png" class="object-cover wow animate__animated animate__fadeInUp"
-                            data-wow-delay=".1s" alt="overview-image">
+                          <img src="./assets/img/ai/02.webp"
+                            class="object-cover wow animate__animated animate__fadeInUp" data-wow-delay=".25s"
+                            alt="overview-image">
                         </div>
                       </div>
                       <div
                         class="overflow-hidden flex flex-1 flex-col items-center justify-center gap-5 text-sm bg-white/14 border border-white/30 rounded-lg cursor-pointer">
                         <div class="flex items-center justify-center h-[32px]">
-                          <img src="./assets/img/ai/03.png" class="object-cover wow animate__animated animate__fadeInUp"
-                            data-wow-delay=".1s" alt="overview-image">
+                          <img src="./assets/img/ai/01.webp"
+                            class="object-cover wow animate__animated animate__fadeInUp" data-wow-delay=".5s"
+                            alt="overview-image">
                         </div>
                       </div>
                     </div>
@@ -535,7 +541,7 @@
                 <div
                   class="relative w-100 wow animate__animated animate__fadeInUp group rounded-4xl bg-white p-4 shadow-solid-8 dark:bg-[#1c2238] overflow-hidden">
                   <a class="relative block overflow-hidden rounded-3xl" href="#">
-                    <img class="aspect-[5/6] object-cover" src="/assets/img/ai/01.png" alt="Feature">
+                    <img class="aspect-[5/6] object-cover" src="./assets/img/ai/01.webp" alt="Feature">
                   </a>
                   <div class="absolute bottom-4 right-4 left-4 p-4 bg-black/80 rounded-b-3xl">
                     <h2
@@ -553,7 +559,7 @@
                 <div
                   class="relative w-100 wow animate__animated animate__fadeInUp group rounded-4xl bg-white p-4 shadow-solid-8 dark:bg-[#1c2238] overflow-hidden">
                   <a class="relative block overflow-hidden rounded-3xl" href="#">
-                    <img class="aspect-[5/6] object-cover" src="/assets/img/ai/01.png" alt="Feature">
+                    <img class="aspect-[5/6] object-cover" src="./assets/img/ai/01.webp" alt="Feature">
                   </a>
                   <div class="absolute bottom-4 right-4 left-4 p-4 bg-black/80 rounded-b-3xl">
                     <h2
@@ -571,7 +577,7 @@
                 <div
                   class="relative w-100 wow animate__animated animate__fadeInUp group rounded-4xl bg-white p-4 shadow-solid-8 dark:bg-[#1c2238] overflow-hidden">
                   <a class="relative block overflow-hidden rounded-3xl" href="#">
-                    <img class="aspect-[5/6] object-cover" src="/assets/img/ai/01.png" alt="Feature">
+                    <img class="aspect-[5/6] object-cover" src="./assets/img/ai/01.webp" alt="Feature">
                   </a>
                   <div class="absolute bottom-4 right-4 left-4 p-4 bg-black/80 rounded-b-3xl">
                     <h2
@@ -589,7 +595,7 @@
                 <div
                   class="relative w-100 wow animate__animated animate__fadeInUp group rounded-4xl bg-white p-4 shadow-solid-8 dark:bg-[#1c2238] overflow-hidden">
                   <a class="relative block overflow-hidden rounded-3xl" href="#">
-                    <img class="aspect-[5/6] object-cover" src="/assets/img/ai/01.png" alt="Feature">
+                    <img class="aspect-[5/6] object-cover" src="./assets/img/ai/01.webp" alt="Feature">
                   </a>
                   <div class="absolute bottom-4 right-4 left-4 p-4 bg-black/80 rounded-b-3xl">
                     <h2
@@ -606,7 +612,7 @@
                 <div
                   class="relative w-100 wow animate__animated animate__fadeInUp group rounded-4xl bg-white p-4 shadow-solid-8 dark:bg-[#1c2238] overflow-hidden">
                   <a class="relative block overflow-hidden rounded-3xl" href="#">
-                    <img class="aspect-[5/6] object-cover" src="/assets/img/ai/01.png" alt="Feature">
+                    <img class="aspect-[5/6] object-cover" src="./assets/img/ai/01.webp" alt="Feature">
                   </a>
                   <div class="absolute bottom-4 right-4 left-4 p-4 bg-black/80 rounded-b-3xl">
                     <h2
@@ -642,7 +648,7 @@
           <div class="flex items-center gap-8 lg:gap-32.5">
             <div
               class="wow animate__animated animate__fadeInLeft relative mx-auto hidden aspect-[588/526.5] md:block md:w-1/2">
-              <img src="/assets/img/ai/about2.svg" alt="About" class="h-full hidden dark:block">
+              <img src="./assets/img/ai/about2.svg" alt="About" class="h-full hidden dark:block">
             </div>
             <div class=" wow animate__animated animate__fadeInRight md:w-1/2">
               <h4 class="flex items-center mb-3 font-medium uppercase text-black dark:text-white">
@@ -711,7 +717,7 @@
           </div>
           <div
             class=" wow animate__animated animate__fadeInRight relative mx-auto hidden aspect-[588/526.5] md:block md:w-1/2">
-            <img src="/assets/img/ai/about2.svg" alt="About" class="h-full hidden dark:block">
+            <img src="./assets/img/ai/about2.svg" alt="About" class="h-full hidden dark:block">
           </div>
         </div>
       </div>
@@ -813,7 +819,7 @@
     </section>
     <!-- ===== Step End ===== -->
 
-    <!-- ===== 优势 Start ===== -->
+    <!-- ===== advantage Start ===== -->
     <section id="features" class="pb-20 lg:pb-25 xl:pb-30">
       <div class="mx-auto max-w-[1315px] px-4 md:px-8 xl:px-0">
         <!-- Section Title Start -->
@@ -926,7 +932,7 @@
         </div>
       </div>
     </section>
-    <!-- ===== 优势 End ===== -->
+    <!-- ===== advantages End ===== -->
 
     <!-- ===== FAQ Start ===== -->
     <section class="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
@@ -1002,7 +1008,7 @@
     </section>
     <!-- ===== FAQ End ===== -->
 
-    <!-- ====== 应用推荐 Start -->
+    <!-- ====== App recommendations Start -->
     <section class="overflow-hidden pb-20 lg:pb-25 xl:pb-30">
       <div class="mx-auto max-w-[1315px] px-4 md:px-8 xl:px-0">
         <!-- Section Title Start -->
@@ -1020,7 +1026,7 @@
             <div
               class="relative wow animate__animated animate__fadeInUp group rounded-4xl bg-white p-4 shadow-solid-8 dark:bg-[#1c2238] overflow-hidden">
               <a class="relative block overflow-hidden rounded-3xl" href="#">
-                <img class="aspect-[5/6] object-cover" src="/assets/img/ai/01.png" alt="Feature">
+                <img class="aspect-[5/6] object-cover" src="./assets/img/ai/01.webp" alt="Feature">
               </a>
               <div class="absolute bottom-4 right-4 left-4 p-4 bg-black/80 rounded-b-3xl">
                 <h3
@@ -1035,7 +1041,7 @@
             <div
               class="relative wow animate__animated animate__fadeInUp group rounded-4xl bg-white p-4 shadow-solid-8 dark:bg-[#1c2238] overflow-hidden">
               <a class="relative block overflow-hidden rounded-3xl" href="#">
-                <img class="aspect-[5/6] object-cover" src="/assets/img/ai/01.png" alt="Feature">
+                <img class="aspect-[5/6] object-cover" src="./assets/img/ai/01.webp" alt="Feature">
               </a>
               <div class="absolute bottom-4 right-4 left-4 p-4 bg-black/80 rounded-b-3xl">
                 <h3
@@ -1050,7 +1056,7 @@
             <div
               class="relative wow animate__animated animate__fadeInUp group rounded-4xl bg-white p-4 shadow-solid-8 dark:bg-[#1c2238] overflow-hidden">
               <a class="relative block overflow-hidden rounded-3xl" href="#">
-                <img class="aspect-[5/6] object-cover" src="/assets/img/ai/01.png" alt="Feature">
+                <img class="aspect-[5/6] object-cover" src="./assets/img/ai/01.webp" alt="Feature">
               </a>
               <div class="absolute bottom-4 right-4 left-4 p-4 bg-black/80 rounded-b-3xl">
                 <h3
@@ -1066,7 +1072,7 @@
         </div>
       </div>
     </section>
-    <!-- ====== 应用推荐 End -->
+    <!-- ====== App recommendations End -->
 
     <!-- ===== CTA Start ===== -->
     <section class="px-5
@@ -1075,7 +1081,7 @@
         class=" overflow-hidden relative z-1 mx-auto max-w-[1315px] rounded-4xl bg-gradient-to-t from-[#F8F9FF]
       to-[#DEE7FF] py-22.5 dark:bg-[#1c2136] dark:bg-gradient-to-t dark:from-transparent dark:to-transparent
       dark:stroke-[#2d2f40] xl:py-27.5">
-      <img src="./assets/img/other/shape-04.png" alt="Man"
+      <img src="./assets/img/other/shape-04.webp" alt="Man"
         class="absolute -left-35 -bottom-60 max-sm:-left-25 max-sm:-bottom-48 max-sm:w-60 -z-1 dc-animate-movebounce">
       <img src="./assets/img/other/shape-dotted-dark-02.svg" alt="Dotted"
         class="absolute left-0 bottom-0 top-0 m-auto -z-1 hidden dark:block">
@@ -1103,7 +1109,7 @@
       </div>
 
       <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a href="/"
+        <a href="./index.html"
           class="flex item-center dc-button-hover-innerline-white rounded-full leading-none
           dc-bg-yellow px-10 py-5 text-[13px] md:text-[16px] text-white shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white cursor-pointer">
 
@@ -1127,7 +1133,7 @@
       <div class="py-20 lg:py-25">
         <div class="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
           <div class=" wow animate__animated animate__fadeInUp w-1/2 lg:w-1/4">
-            <a class="navbar-brand shrink-0 text-5xl font-bold" href="/">
+            <a class="navbar-brand shrink-0 text-5xl font-bold" href="./index.html">
               LOGO
               <!-- <img src="./assets/img/other/logo-dark.svg" alt="Logo" class="hidden dark:block"> -->
             </a>
@@ -1191,7 +1197,7 @@
         <div>
           <ul class="flex items-center gap-5">
             <li>
-              <a href="#">
+              <a href="#" aria-label="facebook">
                 <svg class="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary" width="24" height="24"
                   viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_48_1499)">
@@ -1208,7 +1214,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#" aria-label="x">
                 <svg class="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary" width="24" height="24"
                   viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_48_1502)">
@@ -1225,7 +1231,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#" aria-label="in">
                 <svg class="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary" width="24" height="24"
                   viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_48_1505)">
@@ -1242,7 +1248,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#" aria-label="be">
                 <svg class="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary" width="24" height="24"
                   viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_48_1508)">
@@ -1270,7 +1276,7 @@
   <div x-data="{scrollTop: false}" class="fixed bottom-8 right-8 z-[99]"
     @click="window.scrollTo({top: 0, behavior: 'smooth'})"
     @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false" :class="{ 'rb' : scrollTop }">
-    <div aria-label="scroll to top"
+    <div
       class="hover:shadow-signUp flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#252a42] text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 select-none">
       <span class="mt-[6px] h-3 w-3 rotate-45 border-l border-t border-white"></span>
     </div>
@@ -1343,7 +1349,7 @@
         </div>
 
         <div id="error-bar" class="hidden text-red-500 mb-2" role="alert">
-          <!-- 错误信息将显示在这里 -->
+          <!-- Error messages will be displayed here -->
         </div>
 
         <!-- Tab Content -->
@@ -1426,7 +1432,7 @@
         <div class="footer">
           <p class="text-center font-medium text-gray-600 mt-5">
             Don't have an account?
-            <a class="text-gray-400 border-b border-gary-500 cursor-pointer" @click="signTab = 1">Sign Up</a>
+            <span class="text-gray-400 border-b border-gary-500 cursor-pointer" @click="signTab = 1">Sign Up</span>
           </p>
         </div>
       </form>
@@ -1483,10 +1489,10 @@
         </span>
 
         <div id="error-bar" class="hidden text-red-500 mb-2" role="alert">
-          <!-- 错误信息将显示在这里 -->
+          <!-- Error messages will be displayed here -->
         </div>
 
-        <!-- 邮箱 -->
+        <!-- mailbox -->
         <div class="mb-4 relative">
           <span class="absolute top-1/2 -translate-y-1/2 left-6">
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1499,7 +1505,7 @@
             class="w-full border border-white/[0.12] bg-transparent rounded-full focus:border-white pl-14.5 pr-4 py-3.5 font-medium outline-none focus-visible:shadow-none" />
         </div>
 
-        <!-- 密码 -->
+        <!-- password -->
         <div class="mb-5 relative">
           <span class="absolute top-1/2 -translate-y-1/2 left-6">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1522,7 +1528,7 @@
             class="w-full border border-white/[0.12] bg-transparent rounded-full focus:border-white pl-14.5 pr-4 py-3.5 font-medium outline-none focus-visible:shadow-none" />
         </div>
 
-        <!-- 验证码 -->
+        <!-- Captcha -->
         <div class="mb-5 relative">
           <span class="absolute top-1/2 -translate-y-1/2 left-6">
             <img class="w-[20px]" src="./assets/img/icon/captcha.svg" alt="" srcset="">
@@ -1542,7 +1548,7 @@
 
         <p class="text-center font-medium text-gray-600 mt-5">
           Already have an account?
-          <a class="text-gray-400 border-b border-gary-500 cursor-pointer" @click="signTab = 0">Sign In</a>
+          <span class="text-gray-400 border-b border-gary-500 cursor-pointer" @click="signTab = 0">Sign In</span>
         </p>
       </form>
     </div>
@@ -1551,11 +1557,11 @@
 
   <!-- All JS Links -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="./assets/js/wow.min.js"></script>
-  <script src="./assets/js/jquery.min.js"></script>
-  <script src="./assets/js/magnific-popup.min.js"></script>
-  <script src="./assets/js/main.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="./assets/js/wow.min.js"></script>
+  <script defer src="./assets/js/jquery.min.js"></script>
+  <script defer src="./assets/js/magnific-popup.min.js"></script>
+  <script defer src="./assets/js/main.min.js"></script>
 </body>
 
 </html>
